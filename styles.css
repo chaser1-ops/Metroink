@@ -249,7 +249,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 .marquee-track{
   display:flex;gap:50px;
   white-space:nowrap;
-  animation:scroll 22s linear infinite;
+  animation:scroll 14s linear infinite;
   font-family:var(--font-display-2);
   font-size:18px;letter-spacing:.05em;
 }
@@ -327,8 +327,8 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   background-size:cover;
   background-position:center right;
   background-repeat:no-repeat;
-  opacity:.55;
-  filter:saturate(1.1) brightness(1.32) contrast(1.05);
+  opacity:.72;
+  filter:saturate(1.15) brightness(1.5) contrast(1.08);
   transition:opacity .4s ease, filter .4s ease, transform .4s ease;
   pointer-events:none;
   z-index:0;
@@ -345,7 +345,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   content:'';position:absolute;
   inset:0;
   background:
-    linear-gradient(95deg, rgba(10,10,10,.95) 0%, rgba(10,10,10,.94) 55%, rgba(10,10,10,.65) 78%, rgba(10,10,10,.15) 100%),
+    linear-gradient(95deg, rgba(10,10,10,.97) 0%, rgba(10,10,10,.95) 58%, rgba(10,10,10,.72) 80%, rgba(10,10,10,.20) 100%),
     linear-gradient(150deg, rgba(37,99,235,.0), transparent 60%);
   transition:background .35s ease;
   pointer-events:none;
