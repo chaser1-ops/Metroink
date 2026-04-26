@@ -395,7 +395,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   font-size:14.5px;line-height:1.6;
   margin-bottom:20px;
   flex:1;
-  color:var(--steel);
+  color:#dde2e8;
 }
 .card-tag{
   display:inline-block;align-self:flex-start;
