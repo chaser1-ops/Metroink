@@ -249,7 +249,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 .marquee-track{
   display:flex;gap:50px;
   white-space:nowrap;
-  animation:scroll 14s linear infinite;
+  animation:scroll 12.6s linear infinite;
   font-family:var(--font-display-2);
   font-size:18px;letter-spacing:.05em;
 }
