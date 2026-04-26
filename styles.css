@@ -345,8 +345,7 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   content:'';position:absolute;
   inset:0;
   background:
-    linear-gradient(95deg, rgba(10,10,10,.97) 0%, rgba(10,10,10,.95) 58%, rgba(10,10,10,.72) 80%, rgba(10,10,10,.20) 100%),
-    linear-gradient(150deg, rgba(37,99,235,.0), transparent 60%);
+    linear-gradient(95deg, rgba(10,10,10,.92) 0%, rgba(10,10,10,.65) 35%, rgba(37,99,235,.18) 75%, rgba(37,99,235,.12) 100%);
   transition:background .35s ease;
   pointer-events:none;
   z-index:1;
@@ -358,10 +357,6 @@ button{font:inherit;cursor:pointer;border:none;background:none}
 }
 .service-card:hover::after{
   transform:scale(1.04);
-}
-.service-card:hover::before{
-  background:
-    linear-gradient(95deg, rgba(10,10,10,.92) 0%, rgba(10,10,10,.65) 35%, rgba(37,99,235,.18) 75%, rgba(37,99,235,.12) 100%);
 }
 
 .service-card > *{position:relative;z-index:2}
