@@ -87,7 +87,7 @@
 
   <div class="services-grid">
 
-    <article class="service-card" data-num="01">
+    <article class="service-card" data-num="01" data-service="Screen Printing" tabindex="0" role="button" aria-label="Get a quote for screen printing">
       <div class="card-num">01</div>
       <div class="card-icon" aria-hidden="true">
         <svg viewBox="0 0 60 60" fill="none">
@@ -108,7 +108,7 @@
       <div class="card-tag">BEST FOR BULK 24+</div>
     </article>
 
-    <article class="service-card service-card-accent" data-num="02">
+    <article class="service-card service-card-accent" data-num="02" data-service="Direct-to-Garment (DTG)" tabindex="0" role="button" aria-label="Get a quote for direct to garment printing">
       <div class="card-num">02</div>
       <div class="card-icon" aria-hidden="true">
         <svg viewBox="0 0 60 60" fill="none">
@@ -121,7 +121,7 @@
       <div class="card-tag">NO MINIMUMS</div>
     </article>
 
-    <article class="service-card" data-num="03">
+    <article class="service-card" data-num="03" data-service="Heat Transfers (DTF)" tabindex="0" role="button" aria-label="Get a quote for heat transfers">
       <div class="card-num">03</div>
       <div class="card-icon" aria-hidden="true">
         <svg viewBox="0 0 60 60" fill="none">
@@ -136,7 +136,7 @@
       <div class="card-tag">FAST TURNAROUND</div>
     </article>
 
-    <article class="service-card" data-num="04">
+    <article class="service-card" data-num="04" data-service="Embroidery" tabindex="0" role="button" aria-label="Get a quote for embroidery">
       <div class="card-num">04</div>
       <div class="card-icon" aria-hidden="true">
         <svg viewBox="0 0 60 60" fill="none">
@@ -150,7 +150,7 @@
       <div class="card-tag">UP TO 15 COLORS</div>
     </article>
 
-    <article class="service-card" data-num="05">
+    <article class="service-card" data-num="05" data-service="Custom Hats" tabindex="0" role="button" aria-label="Get a quote for custom hats">
       <div class="card-num">05</div>
       <div class="card-icon" aria-hidden="true">
         <svg viewBox="0 0 60 60" fill="none">
@@ -164,7 +164,7 @@
       <div class="card-tag">25+ STYLES</div>
     </article>
 
-    <article class="service-card" data-num="06">
+    <article class="service-card" data-num="06" data-service="Mugs &amp; Promo" tabindex="0" role="button" aria-label="Get a quote for mugs and promotional items">
       <div class="card-num">06</div>
       <div class="card-icon" aria-hidden="true">
         <svg viewBox="0 0 60 60" fill="none">
@@ -640,6 +640,42 @@
     });
   },{threshold:0.12});
   document.querySelectorAll('.service-card, .work-tile, .process-steps li, .manifesto, .section-head').forEach(el=>io.observe(el));
+
+  // Service card click-through to contact form
+  document.querySelectorAll('.service-card').forEach(card => {
+    const handleActivate = (e) => {
+      if (e.type === 'click' && e.target.closest('a, button, input, select, textarea')) return;
+      if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+      if (e.type === 'keydown') e.preventDefault();
+
+      const service = card.getAttribute('data-service');
+      const select = document.querySelector('select[name="service"]');
+      const contactSection = document.getElementById('contact');
+
+      if (select && service) {
+        const target = service.trim().toLowerCase();
+        const match = Array.from(select.options).find(opt =>
+          opt.value.trim().toLowerCase() === target ||
+          opt.textContent.trim().toLowerCase() === target
+        );
+        if (match) {
+          select.value = match.value || match.textContent;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }
+
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          const firstInput = contactSection.querySelector('input[name="name"]');
+          if (firstInput) firstInput.focus({ preventScroll: true });
+        }, 700);
+      }
+    };
+
+    card.addEventListener('click', handleActivate);
+    card.addEventListener('keydown', handleActivate);
+  });
 </script>
 
 </body>

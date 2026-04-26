@@ -319,6 +319,12 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   overflow:hidden;
 }
 .service-card.in{opacity:1;transform:none}
+.service-card{cursor:pointer}
+.service-card:focus-visible{
+  outline:2px solid var(--blue);
+  outline-offset:4px;
+  border-color:var(--blue);
+}
 
 /* Photo background — sits behind everything, low opacity, right-side anchored */
 .service-card::after{
